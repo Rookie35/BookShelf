@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //setContentView(R.layout.toolbar);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
+        toolbar.setTitle("BookShelf");//设置toolbar 标题
+        toolbar.inflateMenu(R.layout.app_bar_menu);
 
         drawer_layout=(DrawerLayout)findViewById(R.id.drawer_layout);
         list_left_drawer=(ListView)findViewById(R.id.list_left_drawer);

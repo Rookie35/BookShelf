@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/navigation_no"
+        android:icon="@drawable/ic_notifications_24dp"
+        android:title=""
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/sync"
+        android:icon="@drawable/ic_sync_24dp"
+        android:title=""
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/action_bar_title"
+        android:orderInCategory="100"
+        android:title="设置"
+        app:showAsAction="never"
+        />
+
+
+
+
+</menu>
