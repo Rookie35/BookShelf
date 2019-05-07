@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.v7.widget.DrawableUtils;
 
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -34,6 +36,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //setSupportActionBar(toolbar);
         toolbar.setTitle("BookShelf");//设置toolbar 标题
         toolbar.inflateMenu(R.layout.app_bar_menu);
+        //菜单点击监听器
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                if(item.getItemId()==R.id.action_bar_title){
+                    Toast.makeText(getApplication(),"this is title ",Toast.LENGTH_SHORT).show();
+                }
+
+                return false;
+            }
+        });
 
         drawer_layout=(DrawerLayout)findViewById(R.id.drawer_layout);
         list_left_drawer=(ListView)findViewById(R.id.list_left_drawer);
