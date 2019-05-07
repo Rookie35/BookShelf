@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+
+            android:title="实例1" />
+        <item
+            android:id="@+id/nav_gallery"
+
+            android:title="实例2" />
+
+    </group>
+
+    <item android:title="我是分界线">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+
+                android:title="实例3" />
+            <item
+                android:id="@+id/nav_send"
+
+                android:title="实例4" />
+        </menu>
+    </item>
+</menu>

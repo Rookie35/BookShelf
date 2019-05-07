@@ -1,7 +1,9 @@
 package com.example.bookshelf;
 
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DrawableUtils;
@@ -17,9 +19,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity  {
 
     private Toolbar toolbar;
+    private NavigationView mNavigationView;
+    private ActionBarDrawerToggle toggle;
 
     private DrawerLayout drawer_layout;
     private ListView list_left_drawer;
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         toolbar.setTitle("BookShelf");//设置toolbar 标题
-        toolbar.inflateMenu(R.layout.app_bar_menu);
+        toolbar.inflateMenu(R.menu.app_bar_menu);
         //菜单点击监听器
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -49,9 +53,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        drawer_layout=(DrawerLayout)findViewById(R.id.drawer_layout);
-        list_left_drawer=(ListView)findViewById(R.id.list_left_drawer);
 
+
+        drawer_layout=(DrawerLayout)findViewById(R.id.drawer_layout);
+        toggle =new ActionBarDrawerToggle(this,drawer_layout,toolbar,R.string.open,R.string.close);
+        drawer_layout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        mNavigationView=(NavigationView)findViewById(R.id.nav_view);
+
+
+        //list_left_drawer=(ListView)findViewById(R.id.list_left_drawer);
+/*
         menuLists=new ArrayList<Item>();
         menuLists.add(new Item(R.mipmap.iv_menu_realtime,"实时信息"));
         menuLists.add(new Item(R.mipmap.iv_menu_alert,"提醒通知"));
@@ -65,11 +78,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         };
         list_left_drawer.setAdapter(myAdapter);
-        list_left_drawer.setOnItemClickListener(this);
+        list_left_drawer.setOnItemClickListener(this);*/
     }
 
 
-    @Override
+    /*@Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         ContentFragment contentFragment = new ContentFragment();
         Bundle args = new Bundle();
@@ -78,5 +91,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.ly_content,contentFragment).commit();
         drawer_layout.closeDrawer(list_left_drawer);
-    }
+    }*/
 }
