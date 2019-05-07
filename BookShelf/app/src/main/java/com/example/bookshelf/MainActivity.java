@@ -62,7 +62,17 @@ public class MainActivity extends AppCompatActivity  {
 
         mNavigationView=(NavigationView)findViewById(R.id.nav_view);
 
-
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_camera:
+                        Toast.makeText(getApplication(),"我不管我最可爱 ",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return false;
+            }
+        });
         //list_left_drawer=(ListView)findViewById(R.id.list_left_drawer);
 /*
         menuLists=new ArrayList<Item>();
